@@ -63,7 +63,7 @@ class SketchChart {
             const dy2 = buffer[bufferLen-2].y - buffer[bufferLen-3].y;
             const dx2 = buffer[bufferLen-2].x - buffer[bufferLen-3].x;
 
-            if ((dx1 < 0.01 && dx2 < 0.01) || (Math.abs(dy1/dx1) > SLOPE_THRESHOLD && Math.abs(dy2/dx2) > SLOPE_THRESHOLD)) {
+            if ((Math.abs(dx1) < 0.01 && Math.abs(dx2) < 0.01) || (Math.abs(dy1/dx1) > SLOPE_THRESHOLD && Math.abs(dy2/dx2) > SLOPE_THRESHOLD)) {
               _this.mode = MODE_ADJUSTMENT;
             } else {
               _this.mode = MODE_DRAWING;
