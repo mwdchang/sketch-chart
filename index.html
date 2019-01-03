@@ -5,23 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 <meta name="description" content="Direct sketching and graph manipulation"/>
 <title>Sketch graph</title>
-<!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
-<script src="d3.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="sketch-chart.js"></script>
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <section>
+    <h4>Sketch-Chart</h4>
     <p> 
-      Use the mouse to draw the shape of the chart in the area below, of the 
-      form <em>y = f(x)</em>. Once the chart has been rendered, drag up/down individual
-      bars to adjust its height.
+      Tinkering with a fluid way to create and adjust bar charts.
     </p>
+    <ul>
+      <li>Use the mouse to draw the shape of the chart in the area below, of the form <em>Y = f(x)</em>. </li>
+      <li>Drag up/down individual bars to adjust its height. </li>
+    </ul>
     <svg class="sketch-chart" width="800px" height="300px"></svg>
+    <br>
+    <br>
   </section>
 </body>
 <script>
   const target = document.getElementsByClassName('sketch-chart')[0];
-  const sketchChart = new SketchChart(target, 30);
+  const sketchChart = new SketchChart(target, 20);
 </script>
 </html>
