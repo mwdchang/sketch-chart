@@ -19,7 +19,6 @@ class SketchChart {
     this.interval = this.W / this.segments; 
     this.chartData = d3.range(0, this.W, this.interval).map(() => 0); // 0 default
 
-
     const rect = this.canvas.append('rect')
     rect.attr('x', PADDING)
       .attr('y', PADDING)
@@ -39,15 +38,14 @@ class SketchChart {
       _this.renderChart();
     });
 
-    rect.on('mousedown', function() {
-      d3.event.preventDefault();
+    rect.on('mousedown', function(evt) {
+      evt.preventDefault();
       _this.points = [];
       _this.buffer = [];
       _this.mode = 0;
 
-
-      rect.on('mousemove', function() {
-        const p = d3.mouse(_this.canvas.node());
+      rect.on('mousemove', function(evt) {
+        const p = d3.pointer(evt);
         const points = _this.points;
         const buffer = _this.buffer;
 
@@ -85,6 +83,7 @@ class SketchChart {
         } else if (_this.mode === MODE_ADJUSTMENT) {
           if (len > 2) {
             const index = parseInt(buffer[0].x / _this.interval);
+
 
             _this.canvas.selectAll('.outline').remove();
             _this.canvas.append('rect')
@@ -180,5 +179,5 @@ class SketchChart {
 
   rescale() {
   }
-
 }
+
